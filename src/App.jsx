@@ -3,6 +3,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Home from './Pages/Home'
 import Product from './Pages/Product'
+
 export default function App() {
   return (
     <div>
