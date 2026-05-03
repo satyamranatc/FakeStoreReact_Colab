@@ -2,7 +2,9 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Home from './Pages/Home'
-import Product from './Pages/Product'
+import Products from './Pages/Products'
+import ProductsDetails from './Pages/Productdetails'
+import Footer from './components/Footer'
 export default function App() {
   return (
     <div>
