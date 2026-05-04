@@ -10,7 +10,7 @@ export default function Product() {
 
   async function getProductData() {
     try {
-      let data = await fetch("https://api.escuelajs.co/api/v1/products");
+      let data = await fetch("https://fakestoreapi.com/products");
       let res = await data.json();
       console.log(res);
       setProduct(res);
@@ -40,21 +40,20 @@ export default function Product() {
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
       {product.map((e) => (
         <div
+
           key={e.id}
-          className="border p-4 rounded-lg shadow"
+          className="shadow hover:shadow-lg p-4 rounded-lg shadow bg-slate-100"
           onClick={() => navigate(`/product/details/${e.id}`)}
         >
           <img
-            src={e.images?.[0] || "https://picsum.photos/300/200"}
+            src={e.image}
             alt={e.title}
-            onError={(ev) =>
-              (ev.target.src = "https://picsum.photos/300/200")
-            }
+            className="w-full h-48 object-contain mb-4"
           />
 
           <h2 className="font-bold">{e.title}</h2>
           <p className="text-indigo-600 font-semibold">₹{e.price}</p>
-          <p>
+          <p className="text-gray-700" >
             <b>Category:</b> {e.category?.name}
           </p>
 
@@ -62,6 +61,11 @@ export default function Product() {
           <p className="line-clamp-2">
             {e.description}
           </p>
+
+          <button className="bg-indigo-600 mt-5 text-white py-1 px-3 rounded-full hover:bg-indigo-700 transition" >
+            Buy Now
+          </button>
+
         </div>
       ))}
     </div>
